@@ -17,6 +17,6 @@ https://vicolasresume.herokuapp.com/admin/
 
 **Username: Vicolas**
 
-**password: Vicolas**
+**Password: Vicolas**
 
 Thanks.
