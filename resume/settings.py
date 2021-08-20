@@ -2,6 +2,7 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 import os
 import environ
+import django_heroku
 
 env = environ.Env(DEBUG=(bool, False))
 
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vicolasresume.herokuapp.com']
 
 # Application definition
 
@@ -72,15 +73,15 @@ WSGI_APPLICATION = 'resume.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'), 
-        'USER': env('DB_USER'), 
-        'PASSWORD': env('DB_PWD'),
-        'HOST': env('DB_HOST'), 
-        'PORT': env('DB_PORT'),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': env('DB_NAME'), 
+            'USER': env('DB_USER'), 
+            'PASSWORD': env('DB_PWD'),
+            'HOST': 'ec2-54-156-60-12.compute-1.amazonaws.com', 
+            'PORT': '5432',
+        }
     }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -125,8 +126,11 @@ STATICFILES_DIRS = [
 STATIC_ROOT = 'static_root'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+django_heroku.settings(locals())
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
