@@ -10,8 +10,13 @@ An Interactive resume page with contact form which submits to your gmail.
 6. Run **python manage.py runserver**
 
 ## View the DataBase
-To check the request submited:
+
+To check the request submited to the database (Posgres DB):
+
 https://vicolasresume.herokuapp.com/admin/
+
 **Username: Vicolas**
+
 **password: Vicolas**
+
 Thanks.
