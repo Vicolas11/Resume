@@ -509,6 +509,22 @@ section {
 --------------------------------------------------------------*/
 .education .education-item {
   margin-bottom: 30px;
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid #110249;
+  position: relative;
+}
+
+.education .education-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #fff;
+  border: 2px solid #110249;
 }
 
 .education #education-flters {
